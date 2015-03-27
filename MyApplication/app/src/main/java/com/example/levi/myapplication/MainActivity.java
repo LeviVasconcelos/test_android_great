@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -33,10 +34,12 @@ public class MainActivity extends ActionBarActivity {
         // Loading Font Face
         Resources resources = getResources();
 
-        Typeface tf_ezo;
+        Typeface tf_ezo = null;
+        Log.d("DEBUG", "Antes de Load");
         tf_ezo = Typeface.createFromAsset(getAssets(), "edosz.ttf");
-        Typeface tf_arabolic;
+        Typeface tf_arabolic = null;
         tf_arabolic = Typeface.createFromAsset(getAssets(), "arabolic.ttf");
+        Log.d("DEBUG","Depois de Load");
 
         // Applying font
         if(tf_ezo != null && tf_arabolic != null) {

@@ -43,14 +43,14 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="50.0"
-            class="com.example.levi.myapplication.ChooseTeamFragment"
+            android:name="com.example.levi.myapplication.ChooseTeamFragment"
             />
         <fragment
             android:id="@+id/fragTeam2"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="50.0"
-            class="com.example.levi.myapplication.ChooseTeamFragment"
+            android:name="com.example.levi.myapplication.ChooseTeamFragment"
             />
     </LinearLayout>
     <Button

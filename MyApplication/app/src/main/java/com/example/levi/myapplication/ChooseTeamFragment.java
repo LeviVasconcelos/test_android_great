@@ -85,7 +85,8 @@ public class ChooseTeamFragment
 
 
         //Aplicando fontes
-        Typeface tf_arabolic = Typeface.createFromAsset(getActivity().getAssets(), "arabolic.ttf");
+        Typeface tf_arabolic = null;
+        tf_arabolic = Typeface.createFromAsset(getActivity().getAssets(), "arabolic.ttf");
         TextView txtTeam,txtUniform;
         txtTeam = (TextView)layout.findViewById(R.id.chooseTeamFragmentTitle);
         txtUniform = (TextView)layout.findViewById(R.id.chooseUniformFragmentTitle);
