@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="titleChooseTeams">Choose the teams!</string>
+    <string name="action_settings">Settings</string>
+    <string name="chooseTeam1Title">Player 1</string>
+    <string name="chooseTeam2Title">Computer</string>
+    <string name="chooseUniformTitle"> Uniform </string>
+
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

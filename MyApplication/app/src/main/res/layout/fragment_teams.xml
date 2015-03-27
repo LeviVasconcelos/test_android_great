@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="100.0"
+    >
+    <TextView
+        android:id="@+id/ChooseTeamFragmentTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10.0"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:text="@string/chooseTeam1Title"
+        android:textSize="20sp"
+                />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0dp" android:layout_weight="60.0" android:weightSum="100.0" android:background="@drawable/gradient_background">
+        <Button
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="15.0"
+            android:id="@+id/peviousTeam"
+            android:background="#00000000"
+            android:textColor="@android:color/white"
+            android:text="&#60;&#60;"
+            android:textSize="12sp"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/teamViewPager"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="70.0"
+            android:overScrollMode="never"
+            />
+
+        <Button
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="15"
+            android:id="@+id/nextTeam"
+            android:background="#00000000"
+            android:textColor="@android:color/white"
+            android:text=">>"
+            android:textSize="12sp"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/chooseUniformFragmentTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10.0"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:text="@string/chooseUniformTitle"
+        android:textSize="15sp"
+        />
+    <LinearLayout android:orientation="horizontal" android:background="@drawable/gradient_background" android:layout_width="fill_parent" android:layout_height="0dp" android:layout_weight="30.0" android:weightSum="100.0">
+        <Button
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="15.0"
+            android:id="@+id/peviousUniform"
+            android:background="#00000000"
+            android:textColor="@android:color/white"
+            android:text="&#60;&#60;"
+            android:textSize="12sp"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/uniformPager"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="70.0"
+            android:overScrollMode="never"
+            />
+        <Button
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="15.0"
+            android:textColor="@android:color/white"
+            android:id="@+id/nextUniform"
+            android:background="#00000000"
+            android:text=">>"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
