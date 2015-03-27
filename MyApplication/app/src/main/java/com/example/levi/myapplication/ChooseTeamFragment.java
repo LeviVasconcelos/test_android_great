@@ -105,21 +105,25 @@ public class ChooseTeamFragment
     public void onClick(View view) {
 
         if (view.equals(getView().findViewById(R.id.nextTeam))) {
-            teamPager.setCurrentItem(teamPager.getCurrentItem() + 1, true);
+            if(teamPager.getCurrentItem() < teamAdapter.getCount())
+                teamPager.setCurrentItem(teamPager.getCurrentItem() + 1, true);
             return;
             //((ViewPager) getView().findViewById(R.id.teamViewPager)).setCurrentItem();
         }
         if(view.equals(getView().findViewById(R.id.previousTeam))) {
-            teamPager.setCurrentItem(teamPager.getCurrentItem() - 1, true);
+            if(teamPager.getCurrentItem() > 0)
+                teamPager.setCurrentItem(teamPager.getCurrentItem() - 1, true);
             return;
         }
 
         if(view.equals(getView().findViewById(R.id.previousUniform))) {
-            uniformPager.setCurrentItem(uniformPager.getCurrentItem() - 1, true);
+            if(uniformPager.getCurrentItem() > 0)
+                uniformPager.setCurrentItem(uniformPager.getCurrentItem() - 1, true);
             return;
         }
         if(view.equals(getView().findViewById(R.id.nextUniform))) {
-            uniformPager.setCurrentItem(uniformPager.getCurrentItem() + 1, true);
+            if(uniformPager.getCurrentItem() < uniformAdapter.getCount())
+                uniformPager.setCurrentItem(uniformPager.getCurrentItem() + 1, true);
             return;
         }
 
