@@ -44,7 +44,7 @@ public class ChooseTeamFragment
         metrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(this.metrics);
 
-        uniformAdapter = new UniformAdapter(getActivity());
+        uniformAdapter = new UniformAdapter(getActivity(), metrics);
         uniformPager = (ViewPager) layout.findViewById(R.id.uniformViewPager);
         uniformPager.setOffscreenPageLimit(3);
         uniformPager.setPageMargin(-(int)(0.2D * this.metrics.widthPixels));
