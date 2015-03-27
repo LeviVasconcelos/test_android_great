@@ -1,6 +1,7 @@
 package com.example.levi.myapplication;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -20,8 +22,11 @@ public class ChooseTeamFragment
         implements ViewPager.PageTransformer, View.OnClickListener {
 
     private TeamAdapter teamAdapter;
-    private ViewPager uniformPager;
     private ViewPager teamPager;
+    private TeamListener teamListener;
+
+    private ViewPager uniformPager;
+    private UniformAdapter uniformAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceStates) {
@@ -34,9 +39,14 @@ public class ChooseTeamFragment
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_teams, container, false);
 
+
+
+        uniformAdapter = new UniformAdapter(getActivity());
+        uniformPager = (ViewPager) layout.findViewById(R.id.uniformViewPager);
+
         teamAdapter = new TeamAdapter(getActivity());
         teamPager = (ViewPager) layout.findViewById(R.id.teamViewPager);
-        uniformPager = (ViewPager) layout.findViewById(R.id.uniformViewPager);
+
 
         /**
          * ****************** Buttons on click listeners *******************
@@ -60,8 +70,26 @@ public class ChooseTeamFragment
         teamPager.setAdapter(teamAdapter);
         teamPager.setPageTransformer(true, this);
 
+        uniformPager.setAdapter(uniformAdapter);
+        uniformPager.setPageTransformer(true, this);
 
-        return layout;
+        teamListener = new TeamListener(uniformAdapter, uniformPager);
+        teamPager.setOnPageChangeListener(teamListener);
+
+
+        //Aplicando fontes
+        Typeface tf_arabolic = Typeface.createFromAsset(getActivity().getAssets(), "ARABOLIC.TTF");
+        TextView txtTeam,txtUniform;
+        txtTeam = (TextView)layout.findViewById(R.id.chooseTeamFragmentTitle);
+        txtUniform = (TextView)layout.findViewById(R.id.chooseUniformFragmentTitle);
+
+        txtTeam.setTypeface(tf_arabolic);
+        txtUniform.setTypeface(tf_arabolic);
+
+        if (this.getId() == R.id.fragTeam2)
+            txtTeam.setText(getString(R.string.chooseTeam2Title));
+
+            return layout;
     }
 
     public void onClick(View view) {

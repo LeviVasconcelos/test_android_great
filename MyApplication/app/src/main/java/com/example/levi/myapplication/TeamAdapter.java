@@ -25,7 +25,7 @@ public class TeamAdapter extends PagerAdapter {
         this.activity = activity;
         this.flag_images = activity.getResources().obtainTypedArray(R.array.flagImages);
         this.flag_names = activity.getResources().obtainTypedArray(R.array.flagNames);
-        Toast.makeText(activity,"testando " + Integer.toString(flag_names.length()), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(activity,"testando " + Integer.toString(flag_names.length()), Toast.LENGTH_SHORT).show();
 
 
     }

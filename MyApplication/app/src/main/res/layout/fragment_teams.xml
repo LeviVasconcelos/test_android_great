@@ -5,7 +5,7 @@
     android:weightSum="100.0"
     >
     <TextView
-        android:id="@+id/ChooseTeamFragmentTitle"
+        android:id="@+id/chooseTeamFragmentTitle"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="10.0"

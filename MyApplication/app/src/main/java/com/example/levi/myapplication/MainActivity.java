@@ -1,10 +1,14 @@
 package com.example.levi.myapplication;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -19,6 +23,12 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.relLayout);
+  //      FragmentManager fragmentManager = getFragmentManager();
+//        Fragment f = fragmentManager.findFragmentById(R.id.fragTeam2);
+        //View lay2 = inflater.inflateinflater.inflate(R.layout.fragment_teams);
+        //TextView computerTitle = (TextView) f.findViewById(R.id.chooseTeamFragmentTitle);
+        //computerTitle.setText(getString(R.string.chooseTeam2Title));
+
 
         // text view label
         TextView txtTitle = (TextView) findViewById(R.id.text1);
