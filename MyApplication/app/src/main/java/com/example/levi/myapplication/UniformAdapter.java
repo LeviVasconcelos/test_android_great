@@ -10,6 +10,8 @@ import android.graphics.drawable.PaintDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.ArcShape;
 import android.graphics.drawable.shapes.OvalShape;
+import android.graphics.drawable.shapes.RectShape;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.media.Image;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -46,27 +48,33 @@ public class UniformAdapter extends PagerAdapter {
        rdm = new Random();
        buildUniforms(flagNumber);
        metrics = m;
+       paints = new Paint[10];
+       for(int i = 0; i < 10; i++) {
+           paints[i] = new Paint();
+           paints[i].setARGB(255,this.rdm.nextInt(255),this.rdm.nextInt(255),this.rdm.nextInt(255));
+       }
       // Toast.makeText(activity,"testando " + Integer.toString(flagNumber), Toast.LENGTH_SHORT).show();
         }
     public void buildUniforms(int fNumb) {
         flagNumber = fNumb;
         Uniforms = new String[10];
-        paints = new Paint[10];
         for (int i = 0; i < 10; i++) {
-            paints[i] = new Paint();
             Uniforms[i] = flag_names.getString(flagNumber) + Integer.toString(i);
-            paints[i].setARGB(255,this.rdm.nextInt(255),this.rdm.nextInt(255),this.rdm.nextInt(255));
         }
         //Toast.makeText(activity,"Uniform Build: " + Integer.toString(flagNumber), Toast.LENGTH_SHORT).show();
 
     }
 
     public LayerDrawable drawShields(int i) {
-        ShapeDrawable circle = new ShapeDrawable(new OvalShape());
+        ShapeDrawable circle = new ShapeDrawable(new RectShape());
         circle.getPaint().set(paints[i]);
-        circle.setBounds(0, 0, 10 * metrics.widthPixels, 20 * metrics.widthPixels);
+        //circle.setBounds(0, 0, 20 * metrics.widthPixels, 20 * metrics.widthPixels);
+        circle.getPaint().setStyle(Paint.Style.STROKE);
+        circle.getPaint().setStrokeWidth(50);
+        circle.getPaint().setAntiAlias(true);
 
-        Drawable[] drawables = {flag_images.getDrawable(flagNumber), circle};
+        Drawable flag = flag_images.getDrawable(flagNumber);
+        Drawable[] drawables = {flag, circle};
         LayerDrawable layerDrawable = new LayerDrawable(drawables);
 
         return layerDrawable;
