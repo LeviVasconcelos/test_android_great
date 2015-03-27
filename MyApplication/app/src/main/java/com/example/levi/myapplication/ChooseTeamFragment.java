@@ -28,6 +28,8 @@ public class ChooseTeamFragment
     private ViewPager uniformPager;
     private UniformAdapter uniformAdapter;
 
+    private DisplayMetrics metrics;
+
     @Override
     public void onCreate(Bundle savedInstanceStates) {
         super.onCreate(savedInstanceStates);
@@ -39,13 +41,23 @@ public class ChooseTeamFragment
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_teams, container, false);
 
-
+        metrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(this.metrics);
 
         uniformAdapter = new UniformAdapter(getActivity());
         uniformPager = (ViewPager) layout.findViewById(R.id.uniformViewPager);
+        uniformPager.setOffscreenPageLimit(3);
+        uniformPager.setPageMargin(-(int)(0.2D * this.metrics.widthPixels));
+
 
         teamAdapter = new TeamAdapter(getActivity());
         teamPager = (ViewPager) layout.findViewById(R.id.teamViewPager);
+        teamPager.setOffscreenPageLimit(3);
+        teamPager.setPageMargin(-(int) (0.19D * this.metrics.widthPixels));
+
+        //teamPager.setOffscreenPageLimit(7);
+        //teamPager.setHorizontalFadingEdgeEnabled(true);
+        //teamPager.setFadingEdgeLength(30);
 
 
         /**
