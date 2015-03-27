@@ -55,12 +55,7 @@ public class ChooseTeamFragment
         teamPager.setOffscreenPageLimit(3);
         teamPager.setPageMargin(-(int) (0.19D * this.metrics.widthPixels));
 
-        //teamPager.setOffscreenPageLimit(7);
-        //teamPager.setHorizontalFadingEdgeEnabled(true);
-        //teamPager.setFadingEdgeLength(30);
-
-
-        /**
+         /**
          * ****************** Buttons on click listeners *******************
          */
 
@@ -90,13 +85,15 @@ public class ChooseTeamFragment
 
 
         //Aplicando fontes
-        Typeface tf_arabolic = Typeface.createFromAsset(getActivity().getAssets(), "ARABOLIC.TTF");
+        Typeface tf_arabolic = Typeface.createFromAsset(getActivity().getAssets(), "arabolic.ttf");
         TextView txtTeam,txtUniform;
         txtTeam = (TextView)layout.findViewById(R.id.chooseTeamFragmentTitle);
         txtUniform = (TextView)layout.findViewById(R.id.chooseUniformFragmentTitle);
 
-        txtTeam.setTypeface(tf_arabolic);
-        txtUniform.setTypeface(tf_arabolic);
+        if(tf_arabolic != null) {
+            txtTeam.setTypeface(tf_arabolic);
+            txtUniform.setTypeface(tf_arabolic);
+        }
 
         if (this.getId() == R.id.fragTeam2)
             txtTeam.setText(getString(R.string.chooseTeam2Title));

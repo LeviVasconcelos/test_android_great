@@ -1,17 +1,13 @@
 package com.example.levi.myapplication;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -35,12 +31,18 @@ public class MainActivity extends ActionBarActivity {
         Button mybutton = (Button) findViewById(R.id.button1);
 
         // Loading Font Face
-        Typeface tf_ezo = Typeface.createFromAsset(getAssets(), "edosz.ttf");
-        Typeface tf_arabolic = Typeface.createFromAsset(getAssets(), "ARABOLIC.TTF");
+        Resources resources = getResources();
+
+        Typeface tf_ezo;
+        tf_ezo = Typeface.createFromAsset(getAssets(), "edosz.ttf");
+        Typeface tf_arabolic;
+        tf_arabolic = Typeface.createFromAsset(getAssets(), "arabolic.ttf");
 
         // Applying font
-        txtTitle.setTypeface(tf_ezo);
-        mybutton.setTypeface(tf_arabolic);
+        if(tf_ezo != null && tf_arabolic != null) {
+            txtTitle.setTypeface(tf_ezo);
+            mybutton.setTypeface(tf_arabolic);
+        }
         mybutton.setBackgroundResource(R.drawable.custom_button);
     }
 
